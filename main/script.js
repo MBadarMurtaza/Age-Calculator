@@ -23,10 +23,9 @@ btn.addEventListener("click", function () {
     // 🔴 Prevent future dates
     if (userEnteredDate > today) {
       result.innerHTML = `
-        <p class="text-red-500 font-bold">Please enter a valid date from the past!</p>
+        <p class="text-[#ffff76] text-[25px] font-semibold">Please enter a valid date from the past!</p>
       `;
       result.className = "block";
-      return; // Stop execution here
     }
 
     let userAgeYear = todayYear - userYear;
@@ -54,10 +53,5 @@ btn.addEventListener("click", function () {
     console.log(
       `User is ${userAgeYear} years, ${userAgeMonth} months, and ${userAgeDate} days old.`
     );
-  } else {
-    result.innerHTML = `
-      <p class="text-[25px] font-semibold">Enter a <span class="text-[#ffff76]">valid</span> Date of Birth!</p>
-    `;
-    result.className = "block";
   }
 });

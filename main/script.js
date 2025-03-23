@@ -20,7 +20,6 @@ btn.addEventListener("click", function () {
     let userEnteredDate = new Date(userYear, userMonth - 1, userDate);
     let today = new Date(todayYear, todayMonth - 1, todayDate);
 
-    // 🔴 Prevent future dates
     if (userEnteredDate > today) {
       result.innerHTML = `
         <p class="text-[#ffff76] text-[25px] font-semibold">❌ Please enter a valid date from the past!</p>

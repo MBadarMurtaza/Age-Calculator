@@ -13,20 +13,18 @@ let btn = document.getElementById("findAge");
 
 btn.addEventListener("click", function () {
   let value = date.value;
-  console.log(value);
+  let userEnteredDate = new Date(userYear, userMonth - 1, userDate);
+  let today = new Date(todayYear, todayMonth - 1, todayDate);
 
+  if (userEnteredDate > today) {
+    result.innerHTML = `
+      <p class="text-[#ffff76] text-[25px] font-semibold">❌ Please enter a valid date from the past!</p>
+    `;
+    result.className = "block";
+    return; // 🚀 STOP execution here if the date is invalid
+  }
   if (value) {
     let [userYear, userMonth, userDate] = value.split("-").map(Number);
-    let userEnteredDate = new Date(userYear, userMonth - 1, userDate);
-    let today = new Date(todayYear, todayMonth - 1, todayDate);
-
-    if (userEnteredDate > today) {
-      result.innerHTML = `
-        <p class="text-[#ffff76] text-[25px] font-semibold">❌ Please enter a valid date from the past!</p>
-      `;
-      result.className = "block";
-      return; // 🚀 STOP execution here if the date is invalid
-    }
 
     let userAgeYear = todayYear - userYear;
     let userAgeMonth = todayMonth - userMonth;
